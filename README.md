@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Testing a React application using Cypress, Vitest, and MSW.
+This repository consists of how to implement unit testing, end-to-end testing and mocked services in a React application using Cypress, Vitest and MSW
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Introduction
+The modern approach to testing a React application by using some tools, I prefer using. 🔨
 
-In the project directory, you can run:
+- Cypress for End-to-End testing
+- Vitest for Unit Testing
+- MSW for mocking our services
 
-### `npm start`
+## Setup
+I’ll go over how to install everything before heading into the testing.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+When first getting into testing it can be a little daunting with so many sources claiming what is the ideal way to test and what are the best packages or frameworks to use. But, in order to appreciate the testing frameworks, it’s important to see them in action in an application
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I hope to give a very opinionated view on how to test in order to avoid decision paralysis and just get to testing!
 
-### `npm test`
+## Setting up a React app for Testing
+I’ve gone ahead and created a barebones application for the purposes of going through testing. 
+It’s a simple react application powered by Vite that loads posts from https://jsonplaceholder.typicode.com/posts when a button is clicked.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Why this application?
+Fetching, transforming, and displaying a request to an API is probably the most common task in application development. This app will allow us to test exactly those things.
 
-### `npm run build`
+Firstly go on to mock the JSON service with MSW. Do some end-to-end visual testing with Cypress and go through how a test can be created with their test-runner. Finally, with Vitest to create some unit tests to gain some confidence around our individual components and transformation functions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setting up the Testing Packages
+This will just be a simple package installation:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **For Vitest :** ```npm install -D vitest```
+- **For Cypress :** ```npm install -D cypress```
+- **For MSW :** ```npm install -D msw```
+- **Or all at once :** ```npm install -D vitest cypress msw```

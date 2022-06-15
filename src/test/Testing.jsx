@@ -24,7 +24,11 @@ const Testing = (props) => {
         </header>
         <main>
           <section>
-            <button onClick={fetchPosts} type="button">
+            <button
+              data-testid="fetch-posts"
+              onClick={fetchPosts}
+              type="button"
+            >
               Fetch Posts
             </button>
             <button onClick={clearPosts} type="button">
